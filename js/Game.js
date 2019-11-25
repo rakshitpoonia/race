@@ -34,6 +34,11 @@ class Game {
     car3 = createSprite(500,200);
     car4 = createSprite(700,200);
     cars = [car1, car2, car3, car4];
+    car1.addImage("car1",car_1);
+    car2.addImage("car2",car_2);
+    car3.addImage("car3",car_3);
+    car4.addImage("car4",car_4);
+    
   }
 
   play(){
@@ -50,6 +55,8 @@ class Game {
       //x and y position of the cars
       var x = 0;
       var y;
+      background("black");
+      image(track,0,displayHeight*4,displayWidth,displayHeight*5);
 
       for(var plr in allPlayers){
         //add 1 to the index for every loop
