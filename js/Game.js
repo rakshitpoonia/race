@@ -53,10 +53,10 @@ class Game {
       var index = 0;
 
       //x and y position of the cars
-      var x = 0;
+      var x = 175;
       var y;
       background("black");
-      image(track,0,displayHeight*4,displayWidth,displayHeight*5);
+      image(track,0,-displayHeight*4,displayWidth,displayHeight*5);
 
       for(var plr in allPlayers){
         //add 1 to the index for every loop
@@ -72,20 +72,29 @@ class Game {
         if (index === player.index){
           cars[index - 1].shapeColor = "red";
           camera.position.x = displayWidth/2;
-          camera.position.y = cars[index-1].y
+          camera.position.y = cars[index-1].y;
+          fill("red");
+          ellipse(x,y,60,60);
         }
        
         //textSize(15);
         //text(allPlayers[plr].name + ": " + allPlayers[plr].distance, 120,display_position)
+
       }
 
     }
-
+if (player.distance>3650){
+  gameState=2;
+}
     if(keyIsDown(UP_ARROW) && player.index !== null){
       player.distance +=10
       player.update();
+      console.log(player.distance);
     }
-
+    
     drawSprites();
+  }
+  end(){
+    console.log("Game Ended!");
   }
 }
