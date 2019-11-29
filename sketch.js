@@ -8,7 +8,7 @@ var database;
 
 var form, player, game;
 var car_1,car_2,car_3,car_4,track;
-var cars, car1, car2, car3, car4;
+var cars, car1, car2, car3, car4,sound;
 
 function preload(){
   car_1=loadImage("./images/car1.png");
@@ -16,6 +16,7 @@ function preload(){
   car_3=loadImage("./images/car3.png");
   car_4=loadImage("./images/car4.png");
   track=loadImage("./images/track.jpg");
+  sound=loadSound("./images/sound.mp3");
 }
 
 function setup(){
@@ -24,6 +25,7 @@ function setup(){
   game = new Game();
   game.getState();
   game.start();
+  
 }
 
 

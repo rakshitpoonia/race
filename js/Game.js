@@ -43,7 +43,8 @@ class Game {
 
   play(){
     form.hide();
-
+    player.getRank();
+    
     Player.getPlayerInfo();
     
     if(allPlayers !== undefined){
@@ -85,16 +86,24 @@ class Game {
     }
 if (player.distance>3650){
   gameState=2;
+  player.rank++;
+  Player.updateRank(player.rank);
 }
     if(keyIsDown(UP_ARROW) && player.index !== null){
       player.distance +=10
       player.update();
       console.log(player.distance);
+      sound.play();
+      sound.setVolume(0.1);
+    }
+    if (keyWentUp(UP_ARROW)){
+      sound.pause();
     }
     
     drawSprites();
   }
   end(){
     console.log("Game Ended!");
+    console.log(player.rank);
   }
 }
